@@ -128,14 +128,14 @@ namespace Sirenix.OdinInspector.Editor.Drawers
 
             return SteppedValue(value, step);
         }
-
+        
         private static float SteppedValue(float value, float step)
         {
             var absValue = Mathf.Abs(value);
-            step = Mathf.Abs(step);
+            var absStep = Mathf.Abs(step);
 
-            var low = absValue - (absValue % step);
-            var high = low + step;
+            var low = absValue - (absValue % absStep);
+            var high = low + absStep;
 
             var result = absValue - low < high - absValue ? low : high;
 
